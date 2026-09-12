@@ -41,6 +41,216 @@
     .cx-reveal-left.cx-revealed{opacity:1;transform:translateX(0);}
     @keyframes cxTestimonialProgress{from{width:0%;}to{width:100%;}}
     @keyframes cxTestimonialSweep{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+    /* =========================================
+   CONVEXIA - MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  /* Evita scroll horizontal accidental */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* ---------- NAV ---------- */
+
+  nav {
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  nav > img {
+    height: 28px !important;
+    flex-shrink: 0;
+  }
+
+  nav > div {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    max-width: calc(100vw - 80px);
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav > div::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav span {
+    white-space: nowrap;
+    font-size: 12px !important;
+  }
+
+
+  /* ---------- SECCIONES DE 2 COLUMNAS ---------- */
+
+  [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  [style*="grid-template-columns:1fr 1fr"] > div {
+    max-width: 100% !important;
+    justify-self: stretch !important;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  #heroVideo {
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  #heroVideo {
+    order: 2;
+  }
+
+  h1 span[style*="white-space"] {
+    white-space: normal !important;
+  }
+
+  section:has(#heroVideo) {
+    padding: 38px 20px !important;
+    gap: 28px !important;
+  }
+
+  section:has(#heroVideo) h1 {
+    font-size: clamp(29px, 9vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+
+  section:has(#heroVideo) p {
+    font-size: 16px !important;
+    max-width: 100% !important;
+  }
+
+
+  /* ---------- BOTONES HERO ---------- */
+
+  section:has(#heroVideo) .cx-btn {
+    max-width: 100%;
+  }
+
+
+  /* ---------- FORMULARIO CONTACTO ---------- */
+
+  #contact-section {
+    padding: 44px 20px !important;
+  }
+
+  #contact-section > div {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  #contact-section p {
+    max-width: 100% !important;
+  }
+
+  #contact-section iframe {
+    width: 100% !important;
+  }
+
+
+  /* ---------- ABOUT ---------- */
+
+  section:has(#aboutVideo) {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px 34px !important;
+    gap: 28px !important;
+  }
+
+  section:has(#aboutVideo) > div {
+    max-width: 100% !important;
+    justify-self: stretch !important;
+  }
+
+  #aboutVideo {
+    width: 100% !important;
+  }
+
+
+  /* ---------- MEET THE TEAM ---------- */
+
+  .cx-team-card {
+    width: calc(50% - 10px) !important;
+    max-width: 160px !important;
+  }
+
+  h2[style*="white-space"],
+  p[style*="white-space"] {
+    white-space: normal !important;
+  }
+
+
+  /* ---------- CARRUSELES ---------- */
+
+  [style*="left:-52px"] {
+    left: 6px !important;
+    z-index: 10;
+  }
+
+  [style*="right:-52px"] {
+    right: 6px !important;
+    z-index: 10;
+  }
+
+
+  /* ---------- GRIDS/TARJETAS ---------- */
+
+  [style*="minmax(280px,1fr)"],
+  [style*="minmax(260px,1fr)"],
+  [style*="minmax(240px,1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+
+  /* ---------- TESTIMONIOS ---------- */
+
+  [style*="height:280px"] {
+    height: auto !important;
+    min-height: 300px;
+  }
+
+
+  /* ---------- IMÁGENES Y VIDEOS ---------- */
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+}
+
+
+/* Ajustes extra para teléfonos pequeños */
+@media (max-width: 480px) {
+
+  section {
+    max-width: 100%;
+  }
+
+  .cx-team-card {
+    width: calc(50% - 8px) !important;
+  }
+
+  section:has(#heroVideo) h1 {
+    font-size: clamp(27px, 9vw, 36px) !important;
+  }
+
+  #contact-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+}
   </style>
 </helmet>
 
