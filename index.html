@@ -74,7 +74,18 @@
           </span>
         </div>
       </div>
-      <video src="assets/hero-video.mp4" autoplay="" muted="" loop="" playsinline="" style="width:100%;border-radius:16px;display:block;"></video>
+    <video id="heroVideo" src="assets/hero-video.mp4" autoplay muted loop playsinline preload="auto" style="width:100%;border-radius:16px;display:block;"></video>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("heroVideo");
+  if (video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.play().catch(() => {});
+  }
+});
+</script>
     </section>
 
     <section style="background:#201EF3;color:#FFFFFF;padding:64px clamp(20px,6vw,96px);text-align:center;">
