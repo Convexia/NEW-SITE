@@ -41,105 +41,210 @@
     .cx-reveal-left.cx-revealed{opacity:1;transform:translateX(0);}
     @keyframes cxTestimonialProgress{from{width:0%;}to{width:100%;}}
     @keyframes cxTestimonialSweep{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
-    /* =========================================
-   CONVEXIA - MOBILE RESPONSIVE
+ /* =========================================
+   CONVEXIA MOBILE - FINAL
    ========================================= */
+
+.cx-mobile-menu-toggle,
+.cx-mobile-menu-button {
+  display: none;
+}
 
 @media (max-width: 768px) {
 
-  /* Evita scroll horizontal accidental */
   html,
   body {
-    overflow-x: hidden;
+    margin: 0;
     width: 100%;
+    overflow-x: hidden;
   }
 
-  /* ---------- NAV ---------- */
+  /* ==========================
+     MENU
+     ========================== */
 
-  nav {
-    padding: 12px 16px !important;
-    gap: 12px !important;
+  nav.cx-nav {
+    position: sticky !important;
+    top: 0;
+    min-height: 70px;
+    padding: 12px 18px !important;
     flex-wrap: nowrap !important;
+    gap: 12px !important;
   }
 
-  nav > img {
-    height: 28px !important;
+  .cx-nav-logo {
+    height: 34px !important;
+    width: auto !important;
+    max-width: 220px !important;
     flex-shrink: 0;
   }
 
-  nav > div {
+  .cx-mobile-menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .cx-mobile-menu-button {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .cx-mobile-menu-button span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #FFFFFF;
+    border-radius: 5px;
+  }
+
+  .cx-nav-menu {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1B1B1B;
+    padding: 12px 20px 20px;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    border-top: 1px solid #333333;
+  }
+
+  .cx-mobile-menu-toggle:checked ~ .cx-nav-menu {
     display: flex !important;
-    flex-wrap: nowrap !important;
-    gap: 12px !important;
-    overflow-x: auto;
-    max-width: calc(100vw - 80px);
-    padding-bottom: 2px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
 
-  nav > div::-webkit-scrollbar {
-    display: none;
-  }
-
-  nav span {
-    white-space: nowrap;
-    font-size: 12px !important;
+  .cx-nav-menu > span {
+    width: 100%;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    box-sizing: border-box;
   }
 
 
-  /* ---------- SECCIONES DE 2 COLUMNAS ---------- */
-
-  [style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
-  }
-
-  [style*="grid-template-columns:1fr 1fr"] > div {
-    max-width: 100% !important;
-    justify-self: stretch !important;
-  }
-
-
-  /* ---------- HERO ---------- */
-
-  #heroVideo {
-    width: 100% !important;
-    border-radius: 12px !important;
-  }
-
-  #heroVideo {
-    order: 2;
-  }
-
-  h1 span[style*="white-space"] {
-    white-space: normal !important;
-  }
+  /* ==========================
+     HOME HERO
+     ========================== */
 
   section:has(#heroVideo) {
-    padding: 38px 20px !important;
-    gap: 28px !important;
+    grid-template-columns: 1fr !important;
+    padding: 42px 20px !important;
+    gap: 30px !important;
   }
 
   section:has(#heroVideo) h1 {
-    font-size: clamp(29px, 9vw, 42px) !important;
-    line-height: 1.08 !important;
+    font-size: clamp(36px, 10.5vw, 46px) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 20px !important;
+  }
+
+  section:has(#heroVideo) h1 span {
+    white-space: normal !important;
   }
 
   section:has(#heroVideo) p {
-    font-size: 16px !important;
+    font-size: 17px !important;
+    line-height: 1.45 !important;
+    max-width: 100% !important;
+  }
+
+  section:has(#heroVideo) > div > div[style*="display:flex"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  section:has(#heroVideo) .cx-btn {
+    width: 100% !important;
+    height: 50px !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  section:has(#heroVideo) .cx-btn > span {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  #heroVideo {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 14px !important;
+    display: block !important;
+  }
+
+
+  /* ==========================
+     SERVICE CARDS
+     ========================== */
+
+  [style*="width:250px"][style*="transform:rotate"] {
+    width: 100% !important;
+    max-width: 340px !important;
+    transform: none !important;
+  }
+
+
+  /* ==========================
+     TESTIMONIALS
+     ========================== */
+
+  [style*="left:-52px"] {
+    left: 8px !important;
+    z-index: 5 !important;
+  }
+
+  [style*="right:-52px"] {
+    right: 8px !important;
+    z-index: 5 !important;
+  }
+
+  [style*="height:280px"][style*="background:#FFFFFF"] {
+    height: auto !important;
+    min-height: 300px;
+    padding: 28px !important;
+  }
+
+
+  /* ==========================
+     WORK IN ACTION
+     ========================== */
+
+  section:has(#workInActionVideo) {
+    padding: 42px 20px !important;
+    gap: 28px !important;
+  }
+
+  section:has(#workInActionVideo) > div {
+    flex-basis: 100% !important;
     max-width: 100% !important;
   }
 
 
-  /* ---------- BOTONES HERO ---------- */
-
-  section:has(#heroVideo) .cx-btn {
-    max-width: 100%;
-  }
-
-
-  /* ---------- FORMULARIO CONTACTO ---------- */
+  /* ==========================
+     CONTACT
+     ========================== */
 
   #contact-section {
     padding: 44px 20px !important;
@@ -147,7 +252,7 @@
 
   #contact-section > div {
     grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    gap: 30px !important;
   }
 
   #contact-section p {
@@ -159,11 +264,13 @@
   }
 
 
-  /* ---------- ABOUT ---------- */
+  /* ==========================
+     ABOUT - PRIMER BLOQUE
+     ========================== */
 
   section:has(#aboutVideo) {
     grid-template-columns: 1fr !important;
-    padding: 40px 20px 34px !important;
+    padding: 42px 20px 38px !important;
     gap: 28px !important;
   }
 
@@ -172,57 +279,91 @@
     justify-self: stretch !important;
   }
 
+  section:has(#aboutVideo) h1 {
+    font-size: 38px !important;
+    line-height: 1.05 !important;
+  }
+
   #aboutVideo {
     width: 100% !important;
+    height: auto !important;
   }
 
 
-  /* ---------- MEET THE TEAM ---------- */
+  /* ==========================
+     BUFFALO
+     ========================== */
+
+  section:has(img[src="assets/buffalo.png"]) {
+    grid-template-columns: 1fr !important;
+    padding: 44px 20px !important;
+    gap: 28px !important;
+  }
+
+  section:has(img[src="assets/buffalo.png"]) h2 {
+    font-size: 29px !important;
+    line-height: 1.15 !important;
+  }
+
+  section:has(img[src="assets/buffalo.png"]) p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+
+  section:has(img[src="assets/buffalo.png"]) img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 14px !important;
+  }
+
+
+  /* ==========================
+     VALUES
+     ========================== */
+
+  section [style*="display:flex"] > span[style*="flex:1"][style*="text-align:center"] {
+    font-size: 13px !important;
+    padding: 13px 7px !important;
+  }
+
+
+  /* ==========================
+     TEAM
+     ========================== */
+
+  section:has(.cx-team-card) h2,
+  section:has(.cx-team-card) > p {
+    white-space: normal !important;
+  }
 
   .cx-team-card {
     width: calc(50% - 10px) !important;
     max-width: 160px !important;
   }
 
-  h2[style*="white-space"],
-  p[style*="white-space"] {
-    white-space: normal !important;
-  }
 
+  /* ==========================
+     BLOG / STORM CARDS
+     ========================== */
 
-  /* ---------- CARRUSELES ---------- */
-
-  [style*="left:-52px"] {
-    left: 6px !important;
-    z-index: 10;
-  }
-
-  [style*="right:-52px"] {
-    right: 6px !important;
-    z-index: 10;
-  }
-
-
-  /* ---------- GRIDS/TARJETAS ---------- */
-
-  [style*="minmax(280px,1fr)"],
-  [style*="minmax(260px,1fr)"],
-  [style*="minmax(240px,1fr)"] {
+  [style*="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"] {
     grid-template-columns: 1fr !important;
   }
 
 
-  /* ---------- TESTIMONIOS ---------- */
+  /* ==========================
+     PORTFOLIO
+     ========================== */
 
-  [style*="height:280px"] {
-    height: auto !important;
-    min-height: 300px;
+  [style*="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"] {
+    grid-template-columns: 1fr !important;
   }
 
 
-  /* ---------- IMÁGENES Y VIDEOS ---------- */
+  /* ==========================
+     IMAGES SAFETY
+     ========================== */
 
-  img,
   video {
     max-width: 100%;
   }
@@ -230,161 +371,27 @@
 }
 
 
-/* Ajustes extra para teléfonos pequeños */
 @media (max-width: 480px) {
 
-  section {
-    max-width: 100%;
+  .cx-nav-logo {
+    height: 31px !important;
+    max-width: 205px !important;
+  }
+
+  section:has(#heroVideo) h1 {
+    font-size: 39px !important;
+  }
+
+  section:has(#aboutVideo) h1 {
+    font-size: 34px !important;
+  }
+
+  section:has(img[src="assets/buffalo.png"]) h2 {
+    font-size: 27px !important;
   }
 
   .cx-team-card {
     width: calc(50% - 8px) !important;
-  }
-
-  section:has(#heroVideo) h1 {
-    font-size: clamp(27px, 9vw, 36px) !important;
-  }
-
-  #contact-section {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-}
-    /* =========================================
-   CONVEXIA - MOBILE FIX V2
-   ========================================= */
-
-@media (max-width: 768px) {
-
-  /* NAV: por ahora dejamos solo logo y ocultamos enlaces
-     para evitar que se corte horizontalmente */
-  nav {
-    min-height: 72px !important;
-    padding: 14px 20px !important;
-    overflow: hidden !important;
-  }
-
-  nav > img {
-    height: 38px !important;
-    max-width: 220px !important;
-    width: auto !important;
-  }
-
-  nav > div {
-    display: none !important;
-  }
-
-
-  /* HERO */
-  section:has(#heroVideo) {
-    padding: 54px 24px 46px !important;
-  }
-
-  section:has(#heroVideo) h1 {
-    font-size: 46px !important;
-    line-height: 0.99 !important;
-    letter-spacing: -1px !important;
-    margin-bottom: 24px !important;
-  }
-
-  section:has(#heroVideo) p {
-    font-size: 18px !important;
-    line-height: 1.35 !important;
-  }
-
-  section:has(#heroVideo) > div:first-child {
-    width: 100% !important;
-  }
-
-  section:has(#heroVideo) .cx-btn {
-    width: 100% !important;
-    max-width: 365px !important;
-    box-sizing: border-box !important;
-  }
-
-
-  /* Evita botones deformados */
-  .cx-btn {
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-
-  /* THROUGH THE STORM / SECCIONES CON IMAGEN + TEXTO */
-
-  section img {
-    height: auto !important;
-  }
-
-  section > div[style*="display:grid"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  section > div[style*="display: grid"] {
-    grid-template-columns: 1fr !important;
-  }
-
-
-  /* Títulos grandes internos */
-  section h2 {
-    max-width: 100% !important;
-  }
-
-  section h2[style*="font-size"] {
-    font-size: clamp(34px, 9vw, 48px) !important;
-    line-height: 1.05 !important;
-  }
-
-
-  /* Párrafos */
-  section p {
-    max-width: 100% !important;
-  }
-
-
-  /* Imágenes que estaban al lado del texto */
-  section img[style*="border-radius"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    position: static !important;
-    float: none !important;
-    margin-top: 18px !important;
-  }
-
-
-  /* Evita columnas angostas */
-  section [style*="width:50%"],
-  section [style*="width: 50%"] {
-    width: 100% !important;
-  }
-
-  section [style*="max-width:50%"],
-  section [style*="max-width: 50%"] {
-    max-width: 100% !important;
-  }
-
-
-  /* ESPACIADO GENERAL */
-  section {
-    box-sizing: border-box !important;
-  }
-
-}
-
-
-@media (max-width: 480px) {
-
-  section:has(#heroVideo) h1 {
-    font-size: 44px !important;
-  }
-
-  section h2[style*="font-size"] {
-    font-size: 36px !important;
-  }
-
-  nav > img {
-    max-width: 210px !important;
   }
 
 }
