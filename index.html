@@ -430,16 +430,7 @@
       </div>
     <video id="heroVideo" src="assets/hero-video.mp4" autoplay muted loop playsinline preload="auto" style="width:100%;border-radius:16px;display:block;"></video>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const video = document.getElementById("heroVideo");
-  if (video) {
-    video.muted = true;
-    video.defaultMuted = true;
-    video.play().catch(() => {});
-  }
-});
-</script>
+
     </section>
 
     <section style="background:#201EF3;color:#FFFFFF;padding:64px clamp(20px,6vw,96px);text-align:center;">
@@ -1651,6 +1642,9 @@ class Component extends DCLogic {
   };
   stopBubble = (e) => { e.stopPropagation(); };
   componentDidUpdate() {
+      if (this.state.view === 'home' && this._startHeroVideo) {
+      setTimeout(this._startHeroVideo, 100);
+    }
     if (this._galleryLen > 1 && !this._galleryInterval) {
       this._galleryInterval = setInterval(() => {
         if (!this._galleryPaused && this._galleryLen > 1) this.setState(st => ({activeGalleryIndex: (st.activeGalleryIndex+1) % this._galleryLen}));
@@ -1660,6 +1654,23 @@ class Component extends DCLogic {
     }
   }
   componentDidMount() {
+      this._startHeroVideo = () => {
+      const video = document.getElementById('heroVideo');
+
+      if (!video) return;
+
+      video.muted = true;
+      video.defaultMuted = true;
+      video.volume = 0;
+
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    setTimeout(this._startHeroVideo, 100);
+    setTimeout(this._startHeroVideo, 500);
+    setTimeout(this._startHeroVideo, 1500);
     this._revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('cx-revealed'); this._revealObserver.unobserve(e.target); } });
     }, {threshold:0.3, rootMargin:'0px 0px -15% 0px'});
