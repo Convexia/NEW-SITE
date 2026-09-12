@@ -251,6 +251,143 @@
   }
 
 }
+    /* =========================================
+   CONVEXIA - MOBILE FIX V2
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  /* NAV: por ahora dejamos solo logo y ocultamos enlaces
+     para evitar que se corte horizontalmente */
+  nav {
+    min-height: 72px !important;
+    padding: 14px 20px !important;
+    overflow: hidden !important;
+  }
+
+  nav > img {
+    height: 38px !important;
+    max-width: 220px !important;
+    width: auto !important;
+  }
+
+  nav > div {
+    display: none !important;
+  }
+
+
+  /* HERO */
+  section:has(#heroVideo) {
+    padding: 54px 24px 46px !important;
+  }
+
+  section:has(#heroVideo) h1 {
+    font-size: 46px !important;
+    line-height: 0.99 !important;
+    letter-spacing: -1px !important;
+    margin-bottom: 24px !important;
+  }
+
+  section:has(#heroVideo) p {
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  section:has(#heroVideo) > div:first-child {
+    width: 100% !important;
+  }
+
+  section:has(#heroVideo) .cx-btn {
+    width: 100% !important;
+    max-width: 365px !important;
+    box-sizing: border-box !important;
+  }
+
+
+  /* Evita botones deformados */
+  .cx-btn {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+
+  /* THROUGH THE STORM / SECCIONES CON IMAGEN + TEXTO */
+
+  section img {
+    height: auto !important;
+  }
+
+  section > div[style*="display:grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  section > div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+
+  /* Títulos grandes internos */
+  section h2 {
+    max-width: 100% !important;
+  }
+
+  section h2[style*="font-size"] {
+    font-size: clamp(34px, 9vw, 48px) !important;
+    line-height: 1.05 !important;
+  }
+
+
+  /* Párrafos */
+  section p {
+    max-width: 100% !important;
+  }
+
+
+  /* Imágenes que estaban al lado del texto */
+  section img[style*="border-radius"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+    float: none !important;
+    margin-top: 18px !important;
+  }
+
+
+  /* Evita columnas angostas */
+  section [style*="width:50%"],
+  section [style*="width: 50%"] {
+    width: 100% !important;
+  }
+
+  section [style*="max-width:50%"],
+  section [style*="max-width: 50%"] {
+    max-width: 100% !important;
+  }
+
+
+  /* ESPACIADO GENERAL */
+  section {
+    box-sizing: border-box !important;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  section:has(#heroVideo) h1 {
+    font-size: 44px !important;
+  }
+
+  section h2[style*="font-size"] {
+    font-size: 36px !important;
+  }
+
+  nav > img {
+    max-width: 210px !important;
+  }
+
+}
   </style>
 </helmet>
 
