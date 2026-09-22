@@ -730,7 +730,7 @@
       <div class="cx-reveal-right" style="position:relative;max-width:520px;justify-self:start;width:100%;">
         <div style="position:absolute;top:14px;left:14px;width:100%;height:100%;background:#9CF86A;border-radius:14px;"></div>
         <div style="position:relative;border-radius:14px;overflow:hidden;">
-          <video src="assets/about-video.mp4" playsinline="" style="width:100%;border-radius:14px;display:block;" id="aboutVideo"></video>
+          <video src="{{ getAboutVideo() }}" playsinline="" style="width:100%;border-radius:14px;display:block;" id="aboutVideo"></video>
           <div onClick="{{ toggleAboutVideo }}" style="position:absolute;inset:0;background:rgba(0,0,0,{{ aboutVideoOverlayOpacity }});cursor:pointer;transition:background .3s ease;display:flex;align-items:center;justify-content:center;">
             <sc-if value="{{ aboutVideoPlayingNot }}" hint-placeholder-val="{{ true }}">
               <span style="width:64px;height:64px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;">
@@ -1716,6 +1716,10 @@ class Component extends DCLogic {
     lang:'en',
   };
   toggleLang = () => this.setState(s => ({lang: s.lang === 'en' ? 'es' : 'en'}));
+  
+  getAboutVideo = () => this.state.lang === 'en'
+  ? 'assets/work-in-action-en.mp4'
+  : 'assets/about-video.mp4';
 
   goHome = () => this.setState({view:'home'});
   goStorm = () => this.setState({view:'storm'});
